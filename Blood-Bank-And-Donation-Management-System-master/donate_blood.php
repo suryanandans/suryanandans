@@ -9,6 +9,17 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // JavaScript function to allow only digits in the mobile number field
+    function validateMobileNumber(evt) {
+      var charCode = (evt.which) ? evt.which : evt.keyCode;
+      if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+      }
+      return true;
+    }
+  </script>
+
 </head>
 
 <body style="background-color:wheat">
@@ -32,7 +43,7 @@ $active ='donate';
 </div>
 <div class="col-lg-4 mb-4">
 <div class="font-italic">Mobile Number<span style="color:red">*</span></div>
-<div><input type="text" name="mobileno" class="form-control" required></div>
+<div><input type="text" name="mobileno" class="form-control" required onkeypress = "return validateMobileNumber(event);" ></div>
 </div>
 <div class="col-lg-4 mb-4">
 <div class="font-italic">Email Id</div>
